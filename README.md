@@ -9,13 +9,7 @@ A Dart event emitter implementation without any dependencies.
 
 - dart>=1.20.0
 
-## Supports
-
-- [ ] Windows
-- [x] Linux
-- [x] MacOS
-
-## Example
+## Usage
 
 ```dart
 import 'package:event_emitter/event-emitter.dart' show EventEmitter;
