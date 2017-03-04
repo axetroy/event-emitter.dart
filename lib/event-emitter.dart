@@ -8,7 +8,7 @@ class EventEmitter {
   Function on(String event, void handler(dynamic data)) {
     final List eventContainer = this.events.putIfAbsent(event, () => new List<Function>());
     eventContainer.add(handler);
-    final Function offThisListener = () {
+    void offThisListener() {
       eventContainer.remove(handler);
     };
     return offThisListener;
