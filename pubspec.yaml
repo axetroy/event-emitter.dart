@@ -1,7 +1,7 @@
 name: event_emitter
 version: 0.0.1
 description: A Dart event emitter implementation withoud any dependencies.
-author:
+authors:
   - axetroy <troy450409405@gmail.com>
 homepage: https://github.com/axetroy/event-emitter.dart
 
