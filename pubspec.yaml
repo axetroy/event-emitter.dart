@@ -1,4 +1,4 @@
-name: event_emitter
+name: ee
 version: 0.0.1
 description: A Dart event emitter implementation withoud any dependencies.
 authors:

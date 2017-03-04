@@ -1,3 +1,4 @@
+library ee;
 class EventEmitter {
 
   Map<String, List<Function>> events = new Map();
