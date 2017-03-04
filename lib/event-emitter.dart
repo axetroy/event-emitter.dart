@@ -5,7 +5,7 @@ class EventEmitter {
   EventEmitter() {
   }
 
-  Function on(String event, Function handler) {
+  Function on(String event, void handler(dynamic data)) {
     final List eventContainer = this.events.putIfAbsent(event, () => new List<Function>());
     eventContainer.add(handler);
     final Function offThisListener = () {
@@ -14,9 +14,9 @@ class EventEmitter {
     return offThisListener;
   }
 
-  void once(String event, Function handler) {
+  void once(String event, void handler(dynamic data)) {
     final List eventContainer = this.events.putIfAbsent(event, () => new List<Function>());
-    eventContainer.add((data) {
+    eventContainer.add((dynamic data) {
       handler(data);
       this.off(event);
     });
@@ -28,7 +28,7 @@ class EventEmitter {
 
   void emit(String event, [dynamic data]) {
     final List eventContainer = events[event] ?? [];
-    eventContainer.forEach((Function handler) {
+    eventContainer.forEach((void handler(dynamic data)) {
       if (handler is Function) handler(data);
     });
   }
