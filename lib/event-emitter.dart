@@ -22,7 +22,7 @@ class EventEmitter {
     });
   }
 
-  off(String event) {
+  void off(String event) {
     events.remove(event);
   }
 
