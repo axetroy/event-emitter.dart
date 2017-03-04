@@ -1,5 +1,5 @@
 name: ee
-version: 0.0.1
+version: 0.0.2
 description: A Dart event emitter implementation withoud any dependencies.
 authors:
   - axetroy <troy450409405@gmail.com>
