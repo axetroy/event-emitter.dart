@@ -15,11 +15,28 @@ A Dart event emitter implementation without any dependencies.
 import 'package:ee/ee.dart' show EventEmitter;
 
 void main() {
-  EventEmitter event = new EventEmitter();
-  event.on('say hi', (name) {
-    print('Hi! $name');   // Hi! Axetroy
-  });
-  event.emit('say hi', 'Axetroy');
+    EventEmitter event = new EventEmitter();
+    
+    Function cancelSayHello = event.on('greet', (dynamic name) {
+      print('hello ${name}');
+    });
+    
+    Function cancelSayHi = event.on('greet', (dynamic name) {
+      print('hi ${name}');
+    });
+    
+    event.emit('greet', 'Axetroy');
+    // hello Axetroy
+    // hi Axetroy
+    
+    cancelSayHello();   // remove this listener
+    
+    event.emit('greet', 'Axetroy');
+    // hi Axetroy
+    
+    event.off('greet');
+    
+    event.emit('greet', 'Axetroy');   // nothing happen
 }
 ```
 
