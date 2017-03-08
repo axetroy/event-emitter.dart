@@ -1,6 +1,22 @@
 library ee;
 
-class EventEmitter {
+typedef void RemoveListener();
+
+abstract class __EventEmitter__ {
+  Map<String, List<Function>> events;
+
+  RemoveListener on(String event, Function handler([dynamic data]));
+
+  void once(String event, Function handler([dynamic data]));
+
+  void off(String event);
+
+  void clear();
+
+  void emit(String event, [dynamic data]);
+}
+
+class EventEmitter extends __EventEmitter__ {
 
   /**
    * storage for the event handler
